@@ -21,6 +21,8 @@ module.exports =
       permissions = [permissions] if _.isString(permissions)
       permissions = ['admin'] if not _.isArray(permissions)
       hasPermission = _.any(req.user?.hasPermission(permission) for permission in permissions)
+      if Model.schema.uses_coco_permissions and not hasPermission
+        hasPermission = parent.hasPermissionsForMethod(req.user, req.method)
       if not (hasPermission or database.isJustFillingTranslations(req, parent))
         throw new errors.Forbidden()
 
@@ -31,13 +33,14 @@ module.exports =
     database.assignBody(req, doc, { unsetMissing: true })
 
     # Get latest version
+    latestSelect = 'version index slug'
     major = req.body.version?.major
     original = parent.get('original')
     if _.isNumber(major)
       q1 = Model.findOne({original: original, 'version.isLatestMinor': true, 'version.major': major})
     else
       q1 = Model.findOne({original: original, 'version.isLatestMajor': true})
-    q1.select 'version'
+    q1.select latestSelect
     latest = yield q1.exec()
 
     if not latest
@@ -49,11 +52,13 @@ module.exports =
       else
         q2 = Model.findOne()
         q2.sort({'version.major': -1, 'version.minor': -1})
-      q2.select 'version'
+      q2.select(latestSelect)
       latest = yield q2.exec()
       if not latest
         throw new errors.NotFound('Previous version not found.')
 
+    backup = _.pick(latest.toObject(), 'version', 'index', 'slug')
+        
     # Transfer latest version
     major = req.body.version?.major
     version = _.clone(latest.get('version'))
@@ -89,7 +94,11 @@ module.exports =
 
     doc.set('parent', latest._id)
 
-    doc = yield doc.save()
+    try
+      doc = yield doc.save()
+    catch e
+      yield latest.update({$set: _.pick(latest.toObject(), 'version', 'index', 'slug')})
+      throw e
 
     editPath = req.headers['x-current-path']
     docLink = "http://codecombat.com#{editPath}"

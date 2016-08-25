@@ -101,7 +101,7 @@ module.exports = nativeDescription: "български език", englishDescri
     blog: "Блог"
     forum: "Форум"
     account: "Акаунт"
-#    my_account: "My Account"
+    my_account: "Moят акаунт"
     profile: "Профил"
     stats: "Статистики"
     code: "Код"
@@ -111,27 +111,27 @@ module.exports = nativeDescription: "български език", englishDescri
     about: "За нас"
     contact: "Контакти"
     twitter_follow: "Започни да следиш"
-#    students: "Students"
+    students: "Студенти"
     teachers: "Учители"
     careers: "Кариери"
-#    facebook: "Facebook"
-#    twitter: "Twitter"
-#    create_a_class: "Create a Class"
-#    other: "Other"
-#    learn_to_code: "Learn to Code!"
+    facebook: "Facebook"
+    twitter: "Twitter"
+    create_a_class: "Създай клас"
+    other: "Други"
+    learn_to_code: "Научи се да програмираш!"
 #    toggle_nav: "Toggle navigation"
-#    jobs: "Jobs"
-#    schools: "Schools"
+    jobs: "Работа"
+    schools: "Училища"
 #    educator_wiki: "Educator Wiki"
-#    get_involved: "Get Involved"
-#    open_source: "Open source (GitHub)"
-#    support: "Support"
-#    faqs: "FAQs"
-#    help_pref: "Need help? Email"
-#    help_suff: "and we'll get in touch!"
+    get_involved: "Включете се"
+    open_source: "Отворен код (GitHub)"
+    support: "Поддръжка"
+    faqs: "ЧЗД"
+    help_pref: "Нужда от помощ? Е-поща"
+    help_suff: "и ние ще се свържем с Вас!"
 
   modal:
-#    cancel: "Cancel"
+    cancel: "Отказ"
     close: "Затвори"
     okay: "Добре"
 
@@ -148,7 +148,7 @@ module.exports = nativeDescription: "български език", englishDescri
 
   play:
     play_as: "Играй като" # Ladder page
-#    compete: "Compete!" # Course details page
+    compete: "Завършено!" # Course details page
     spectate: "Наблюдател" # Ladder page
     players: "Играчи" # Hover over a level on /play
     hours_played: "Изиграни часове" # Hover over a level on /play
@@ -242,7 +242,7 @@ module.exports = nativeDescription: "български език", englishDescri
 
   login:
     sign_up: "Създай Профил"
-#    email_or_username: "Email or username"
+    email_or_username: "Е-поща или потребителско име"
     log_in: "Вход"
     logging_in: "Влизане..."
     log_out: "Изход"
@@ -255,19 +255,19 @@ module.exports = nativeDescription: "български език", englishDescri
     signup_switch: "Създаване на нов акаунт?"
 
   signup:
-#    create_student_header: "Create Student Account"
-#    create_teacher_header: "Create Teacher Account"
-#    create_individual_header: "Create Individual Account"
-#    create_header: "Create Account"
+    create_student_header: "Създай Студентски Акаунт"
+    create_teacher_header: "Създай Учителски Акаунт"
+    create_individual_header: "Създай Учителски Акаунт"
+    create_header: "Създай Акаунт"
     email_announcements: "Получавай анонси по имейл"
     creating: "Създаване на профил..."
-#    create_account: "Create Account"
+    create_account: "Създай Акаунт"
     sign_up: "Регистриране"
     log_in: "Вход с парола"
     required: "Трабва да влезеш преди можеш да ходиш на там."
     login_switch: "Вече имаш акаунт?"
-#    school_name: "School Name and City"
-#    optional: "optional"
+    school_name: "Име на училище и град"
+    optional: "по избор"
 #    school_name_placeholder: "Example High School, Springfield, IL"
 #    connect_with: "Connect with:"
 #    connected_gplus_header: "You've successfully connected with Google+!"
